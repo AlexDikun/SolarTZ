@@ -10,29 +10,38 @@
     <!-- Шапка -->
     <header class="header">
         <div class="container">
-            <a href="#" class="logo-link">
-                <img src="images/logo.jpg" alt="Джанго Спасенный" class="logo">
-            </a>
-            <div class="auth-block">
+            <!-- Лого и категория -->
+            <div class="header-left">
+                <a href="#" class="logo-link">
+                    <img src="images/logo.jpg" alt="Джанго Спасенный" class="logo">
+                </a>
+                <div class="category-block">
+                    <select class="category-select">
+                        <option value="">Все категории</option>
+                        <option value="cats">Кошки</option>
+                        <option value="dogs">Собаки</option>
+                        <option value="rodents">Грызуны</option>
+                        <option value="birds">Птицы</option>
+                        <option value="other">Другие</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Поиск -->
+            <div class="header-center">
+                <div class="search-block">
+                    <input type="text" class="search-input" placeholder="Поиск животных...">
+                    <button class="search-button">Найти</button>
+                </div>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="header-right">
                 <button class="auth-button">Войти</button>
-            </div>
-            <div class="search-block">
-                <input type="text" class="search-input" placeholder="Поиск животных...">
-                <button class="search-button">Найти</button>
-            </div>
-            <div class="category-block">
-                <select class="category-select">
-                    <option value="">Выберите категорию</option>
-                    <option value="cats">Кошки</option>
-                    <option value="dogs">Собаки</option>
-                    <option value="rodents">Грызуны</option>
-                    <option value="birds">Птицы</option>
-                    <option value="other">Другие</option>
-                </select>
+                <button class="add-ad-button">Новое объявление</button>
             </div>
         </div>
     </header>
-    <br>
 
     <!-- Мейн -->
     <main class="main">
