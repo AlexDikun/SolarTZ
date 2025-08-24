@@ -9,6 +9,12 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -126,6 +132,10 @@ a {
 }
 
 /* ===== Мейн фрейм ===== */
+.main {
+    flex: 1;
+}
+
 .ads-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -170,11 +180,12 @@ a {
 
 /* ===== Подвал ===== */
 .footer {
+    /* position: absolute; */
     background-color: #f8f9fa;
     padding: 20px 0;
     text-align: center;
     border-top: 1px solid #ddd;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .contacts {
