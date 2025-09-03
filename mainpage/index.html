@@ -7,16 +7,14 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <!-- Шапка -->
-    <header>
-        <div class="container">
-            <!-- Лого и категория -->
-            <div class="header-left">
-                <a href="#" class="logo-link">
-                    <img src="images/logo.jpg" alt="Джанго Спасенный" class="logo">
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__left">
+                <a href="#" class="header__logo-link">
+                    <img src="images/logo.jpg" alt="Джанго Спасенный" class="header__logo">
                 </a>
-                <div class="category-block">
-                    <select class="category-select">
+                <div class="header__category-block">
+                    <select class="header__category-select">
                         <option value="">Все категории</option>
                         <option value="cats">Кошки</option>
                         <option value="dogs">Собаки</option>
@@ -26,65 +24,57 @@
                     </select>
                 </div>
             </div>
-
-            <!-- Поиск -->
-            <div class="header-center">
-                <div class="search-block">
-                    <input type="text" class="search-input" placeholder="Поиск животных...">
-                    <button class="search-button">Найти</button>
+            <div class="header__center">
+                <div class="header__search-block">
+                    <input type="text" class="header__search-input" placeholder="Поиск животных...">
+                    <button class="header__search-button">Найти</button>
                 </div>
             </div>
-
-            <!-- Кнопки -->
-            <div class="header-right">
-                <button class="auth-button">Войти</button>
-                <button class="add-ad-button">Новое объявление</button>
+            <div class="header__right">
+                <button class="header__auth-button">Войти</button>
+                <button class="header__add-ad-button">Новое объявление</button>
             </div>
         </div>
     </header>
 
-    <!-- Мейн -->
-    <main class="main">
-        <div class="container">
+   <main class="main">
+        <div class="main__container container">
             <ul class="ads-grid" id="adsGrid">
-                <!-- Первое объявление -->
                 <li class="ad-card">
-                    <div class="ad-image">
-                        <img src="images/littleDog.png" alt="Щенок в праздничной шляпе"">
+                    <div class="ad-card__image">
+                        <img src="images/littleDog.png" alt="Щенок в праздничной шляпе" class="ad-card__img">
                     </div>
-                    <div class="ad-info">
-                        <h3 class="ad-title">Отдам щенка!</h3>
-                        <p class="ad-description">У него недавно был день рождения</p>
-                        <p class="ad-price">Бесплатно</p>
+                    <div class="ad-card__info">
+                        <h3 class="ad-card__title">Отдам щенка!</h3>
+                        <p class="ad-card__description">У него недавно был день рождения</p>
+                        <p class="ad-card__price">Бесплатно</p>
                     </div>
                 </li>
-                <!-- Второе объявление-->
                 <li class="ad-card">
-                    <div class="ad-image">
-                        <img src="images/parrot.png" alt="Мужчина с попугаем">
+                    <div class="ad-card__image">
+                        <img src="images/parrot.png" alt="Мужчина с попугаем" class="ad-card__img">
                     </div>
-                    <div class="ad-info">
-                        <h3 class="ad-title">Продам верного друга</h3>
-                        <p class="ad-description">Он даже раговаривает немного</p>
-                        <p class="ad-price">5 000 ₽</p>
+                    <div class="ad-card__info">
+                        <h3 class="ad-card__title">Продам верного друга</h3>
+                        <p class="ad-card__description">Он даже раговаривает немного</p>
+                        <p class="ad-card__price">5 000 ₽</p>
                     </div>
                 </li>
             </ul>
         </div>
     </main>
 
-    <!-- Подвал -->
     <footer class="footer">
-        <div class="container">
-            <p class="copyright">© 2025 Джанго Спасенный. Все права защищены.</p>
-            <div class="contacts">
-                <p>Алекс Дикун</p>
-                <p>ул. Пушкина, д. Колотушкина</p>
-                <p>8 800 555 35 35</p>
+        <div class="footer__container container">
+            <p class="footer__copyright">© 2025 Джанго Спасенный. Все права защищены.</p>
+            <div class="footer__contacts">
+                <p class="footer__contact-text">Алекс Дикун</p>
+                <p class="footer__contact-text">ул. Пушкина, д. Колотушкина</p>
+                <p class="footer__contact-text">8 800 555 35 35</p>
             </div>
         </div>
     </footer>
-
+    
     <script src="scripts/main.js"></script>
 </body>
 </html>

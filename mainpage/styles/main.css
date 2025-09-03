@@ -1,4 +1,3 @@
-/* ===== База ===== */
 body, h1, h3, p {
     margin: 0;
     padding: 0;
@@ -28,20 +27,19 @@ a {
 }
 
 /* ===== Шапка ===== */
-header {
+.header {
     background-color: #3a7bd5;
     padding: 10px 0;
     color: white;
 }
 
-header > .container {
+.header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Логотип и категория */
-.header-left {
+.header__left {
     flex: 0 0 30%;
     display: flex;
     align-items: center;
@@ -49,7 +47,7 @@ header > .container {
     padding-right: 20px;
 }
 
-.logo {
+.header__logo {
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -57,11 +55,7 @@ header > .container {
     object-fit: cover;
 }
 
-.category-block {
-    flex: 1;
-}
-
-.category-select {
+.header__category-select {
     width: 100%;
     padding: 8px;
     border-radius: 4px;
@@ -69,8 +63,7 @@ header > .container {
     font-size: 14px;
 }
 
-/* Поиск */
-.header-center {
+.header__center {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -78,13 +71,13 @@ header > .container {
     padding: 0 20px;
 }
 
-.search-block {
+.header__search-block {
     width: 100%;
     max-width: 500px;
     display: flex;
 }
 
-.search-input {
+.header__search-input {
     outline: none;
     flex: 1;
     padding: 10px;
@@ -93,7 +86,7 @@ header > .container {
     font-size: 16px;
 }
 
-.search-button {
+.header__search-button {
     padding: 10px 20px;
     background-color: #2e64b5;
     color: white;
@@ -104,12 +97,11 @@ header > .container {
     transition: background-color 0.3s ease;
 }
 
-.search-button:hover {
+.header__search-button:hover {
     background-color: #2556a5;
 }
 
-/* Кнопки */
-.header-right {
+.header__right {
     flex: 0 0 30%;
     display: flex;
     gap: 10px;
@@ -117,7 +109,8 @@ header > .container {
     padding-left: 20px;
 }
 
-.auth-button, .add-ad-button {
+.header__auth-button,
+.header__add-ad-button {
     padding: 10px 15px;
     background-color: #2e64b5;
     color: white;
@@ -128,11 +121,12 @@ header > .container {
     transition: background-color 0.3s ease;
 }
 
-.auth-button:hover, .add-ad-button:hover {
+.header__auth-button:hover,
+.header__add-ad-button:hover {
     background-color: #2556a5;
 }
 
-/* ===== Мейн фрейм ===== */
+/* ===== Main ===== */
 .main {
     flex: 1;
 }
@@ -144,7 +138,6 @@ header > .container {
     margin: 20px 0;
     list-style: none;
     padding: 0;
-    cursor: pointer;
 }
 
 .ad-card {
@@ -155,28 +148,28 @@ header > .container {
     background-color: white;
 }
 
-.ad-image img {
+.ad-card__img {
     width: 100%;
     height: 250px;
     object-fit: cover;
 }
 
-.ad-info {
+.ad-card__info {
     padding: 10px;
 }
 
-.ad-title {
+.ad-card__title {
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-.ad-description {
+.ad-card__description {
     font-size: 14px;
     color: #666;
     margin-bottom: 5px;
 }
 
-.ad-price {
+.ad-card__price {
     font-size: 16px;
     font-weight: bold;
     color: #0066cc;
@@ -184,7 +177,6 @@ header > .container {
 
 /* ===== Подвал ===== */
 .footer {
-    /* position: absolute; */
     background-color: #f8f9fa;
     padding: 20px 0;
     text-align: center;
@@ -192,6 +184,10 @@ header > .container {
     margin-top: auto;
 }
 
-.contacts {
+.footer__contacts {
     margin-top: 10px;
+}
+
+.footer__contact-text {
+    margin: 5px 0;
 }
