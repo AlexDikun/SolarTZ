@@ -85,6 +85,7 @@ a {
 }
 
 .search-input {
+    outline: none;
     flex: 1;
     padding: 10px;
     border: none;
