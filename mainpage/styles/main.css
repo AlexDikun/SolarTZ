@@ -28,13 +28,13 @@ a {
 }
 
 /* ===== Шапка ===== */
-.header {
+header {
     background-color: #3a7bd5;
     padding: 10px 0;
     color: white;
 }
 
-.header > .container {
+header > .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
