@@ -145,6 +145,12 @@ a {
     flex: 1;
 }
 
+.main__title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
 .ads-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -155,38 +161,40 @@ a {
 }
 
 .ad-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
+    box-shadow: none; 
+    border: none; 
 }
 
 .ad-card__img {
     width: 100%;
-    height: 250px;
+    height: 200px;  
     object-fit: cover;
 }
 
 .ad-card__info {
-    padding: 10px;
+    padding: 12px; 
 }
 
 .ad-card__title {
     font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.ad-card__description {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
+    color: #007bff; 
+    margin-bottom: 8px; 
 }
 
 .ad-card__price {
     font-size: 16px;
     font-weight: bold;
-    color: #0066cc;
+    color: #333;
+    margin-bottom: 8px; 
+}
+
+.ad-card__description {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 0;
 }
 
 /* ===== Подвал ===== */
