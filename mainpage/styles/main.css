@@ -28,8 +28,8 @@ a {
 
 /* ===== Шапка ===== */
 .header {
-    background-color: #3a7bd5;
-    padding: 10px 0;
+    background-color: #1a365d; ; /* new */
+    padding: 12px 0;
     color: white;
 }
 
@@ -40,61 +40,55 @@ a {
 }
 
 .header__left {
-    flex: 0 0 30%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding-right: 20px;
+    font-size: 18px; 
+    font-weight: bold;
+    color: white;
 }
 
-.header__logo {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
-    object-fit: cover;
+.header__title {
+    font-size: 18px; 
+    font-weight: bold;
+    color: white;
 }
 
 .header__category-select {
-    width: 100%;
-    padding: 8px;
+    outline: none; 
+    padding: 8px 12px;
     border-radius: 4px;
     border: none;
     font-size: 14px;
+    background-color: white; 
+    color: #1a365d; 
+    min-width: 150px;
 }
 
 .header__center {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 0 20px;
 }
 
 .header__search-block {
     width: 100%;
-    max-width: 500px;
     display: flex;
 }
 
 .header__search-input {
-    outline: none;
     flex: 1;
-    padding: 10px;
-    border: none;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     font-size: 16px;
+    outline: none;
 }
 
 .header__search-button {
     padding: 10px 20px;
-    background-color: #2e64b5;
+    background-color: #007bff; 
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
 }
 
 .header__search-button:hover {
@@ -102,23 +96,23 @@ a {
 }
 
 .header__right {
-    flex: 0 0 30%;
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
-    padding-left: 20px;
 }
 
 .header__auth-button,
 .header__add-ad-button {
     padding: 10px 15px;
-    background-color: #2e64b5;
+    background-color: #007bff; 
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.header__add-ad-button {
+    background-color: #0056b3; 
 }
 
 .header__auth-button:hover,
