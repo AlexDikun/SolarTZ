@@ -194,6 +194,12 @@ a {
 .ad-card__description {
     font-size: 14px;
     color: #999;
+    margin-bottom: 4px;
+}
+
+.ad-card__date {
+    font-size: 14px;
+    color: #999; 
     margin-bottom: 0;
 }
 
