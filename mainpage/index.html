@@ -3,35 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Джанго Спасенный — Отдам в добрые руки</title>
+    <title>доска-объявлений.рф</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <header class="header">
-        <div class="header__container container">
-            <div class="header__left">
-                <h1 class="header_title">Доска объявлений</h1>
-                </a>
-                <div class="header__category-block">
-                    <select class="header__category-select">
-                        <option value="">Все категории</option>
-                        <option value="cats">Категория 1</option>
-                        <option value="dogs">Категория 2</option>
-                        <option value="rodents">Категория 3</option>
-                        <option value="birds">Категория 4</option>
-                        <option value="other">Категория 5</option>
-                    </select>
+        <div class="header__top-bar">
+            <div class="header__container container">
+                <div class="header__auth-block">
+                    <button class="header__auth-button">
+                        <span class="header__auth-icon">👤</span> Войти
+                    </button>
+                    <button class="header__new-publication-button">
+                        Новое объявление <span class="header__new-publication-icon">＋</span>
+                    </button>
                 </div>
             </div>
-            <div class="header__center">
+        </div>
+        <div class="header__bot-bar">
+            <div class="header__container container">
+                <div class="header__left">
+                    <h1 class="header__title">Доска объявлений</h1>
+                    <div class="header__category-block">
+                        <select class="header__category-select">
+                            <option value=""> ≡ Все категории</option>
+                            <option value="category1">Категория 1</option>
+                            <option value="category2">Категория 2</option>
+                            <option value="category3">Категория 3</option>
+                            <option value="category4">Категория 4</option>
+                            <option value="category5">Категория 5</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="header__search-block">
-                    <input type="text" class="header__search-input" placeholder="Поиск по объявленим">
-                    <button class="header__search-button">Найти</button>
+                    <input type="text" class="header__search-input" placeholder="Поиск по объявлениям">
+                    <button class="header__search-button">Найти <span class="header__search-icon">🔍</span></button>
                 </div>
-            </div>
-            <div class="header__right">
-                <button class="header__auth-button">Войти</button>
-                <button class="header__add-ad-button">Новое объявление</button>
             </div>
         </div>
     </header>
