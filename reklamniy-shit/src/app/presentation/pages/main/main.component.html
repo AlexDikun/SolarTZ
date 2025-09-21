@@ -8,9 +8,9 @@
                     </div>
                     <div class="ad-card__info">
                         <h3 class="ad-card__title">Прекрасный щенок!</h3>
-                        <p class="ad-card__price">Бесплатно</p>
+                        <p class="ad-card__price">{{ price2 }}</p>
                         <p class="ad-card__description">У него недавно был день рождения</p>
-                        <p class="ad-card__date">Сегодня в 14:12</p>
+                        <p class="ad-card__date">{{ curDate | date }}</p>
                     </div>
                 </li>
                 <li class="ad-card">
@@ -19,9 +19,9 @@
                     </div>
                     <div class="ad-card__info">
                         <h3 class="ad-card__title">Верный друг</h3>
-                        <p class="ad-card__price">5 000 ₽</p>
+                        <p class="ad-card__price">{{ price1 | currency: '₽' }}</p>
                         <p class="ad-card__description">Он даже раговаривает немного</p>
-                        <p class="ad-card__date">Сегодня в 14:12</p>
+                        <p class="ad-card__date">{{ curDate | date }}</p>
                     </div>
                 </li>
             </ul>
