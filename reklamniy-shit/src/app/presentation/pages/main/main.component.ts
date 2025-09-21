@@ -10,6 +10,6 @@ import { MainBsService } from './services/main-bs.service';
     MainBsService
   ]
 })
-export class MainComponent {
+export class MainComponent  {
 
 }
