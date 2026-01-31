@@ -24,4 +24,20 @@ public class PersonDTO {
         dto.setPosition(personEntity.getPosition());
         return dto;
     }
+
+    public PersonDTO() {}
+
+    public PersonDTO(
+        String firstName,
+        String lastName,
+        String email,
+        LocalDate birthDate,
+        Position position
+    ) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.position = position;
+    }
 }
