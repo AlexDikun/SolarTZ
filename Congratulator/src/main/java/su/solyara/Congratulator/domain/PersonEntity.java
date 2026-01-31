@@ -31,7 +31,7 @@ public class PersonEntity {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "birth_date")
+    @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
     @Column(name = "positions")
