@@ -26,7 +26,6 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     private PersonRepo personRepo;
 
     @Override
-    @Transactional
     public void onApplicationEvent(final @NonNull ContextRefreshedEvent event) {
         if (alreadySetup) {
             return;
@@ -58,7 +57,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
                 "Джон",
                 "Сноу",
                 "jhon.show@example.com",
-                LocalDate.of(567, 12, 3),
+                LocalDate.of(1967, 16, 7),
                 Position.SUPPORT_STAFF
             ),
             new PersonDTO(
