@@ -56,7 +56,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
                 "Джон",
                 "Сноу",
                 "jhon.show@example.com",
-                LocalDate.of(1967, 16, 7),
+                LocalDate.of(1967, 5, 7),
                 Position.SUPPORT_STAFF
             ),
             new PersonDTO(
