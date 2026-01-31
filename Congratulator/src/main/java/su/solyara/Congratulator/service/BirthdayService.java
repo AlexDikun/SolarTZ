@@ -3,13 +3,16 @@ package su.solyara.Congratulator.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import su.solyara.Congratulator.DTO.BirthdayEventDTO;
+import su.solyara.Congratulator.DTO.PersonDTO;
 import su.solyara.Congratulator.domain.PersonEntity;
 import su.solyara.Congratulator.repos.PersonRepo;
 
@@ -29,7 +32,8 @@ public class BirthdayService {
     public List<BirthdayEventDTO> getUpcomingBirthdays (LocalDate startDate, int days) {
         LocalDate endDate = startDate.plusDays(days - 1);
         List<PersonEntity> allPersons = personRepo.findAll();
-        List<BirthdayEventDTO> upcomingBirthdays = new ArrayList<>();
+
+        Map<LocalDate, List<PersonDTO>> eventsMap = new HashMap<>();
 
         for (PersonEntity person : allPersons) {
             LocalDate thisYearBirthday = LocalDate.of(
@@ -44,9 +48,19 @@ public class BirthdayService {
             );
 
             if (isInRange) {
-                BirthdayEventDTO event = new BirthdayEventDTO(thisYearBirthday, List.of(person));
-                upcomingBirthdays.add(event);
+                PersonDTO personDTO = PersonDTO.fromEntity(person);  
+                eventsMap.computeIfAbsent(thisYearBirthday, k -> new ArrayList<>())
+                        .add(personDTO);
             }
+        }
+
+        List<BirthdayEventDTO> upcomingBirthdays = new ArrayList<>();
+        for (Map.Entry<LocalDate, List<PersonDTO>> entry : eventsMap.entrySet()) {
+            LocalDate date = entry.getKey();
+            List<PersonDTO> persons = entry.getValue();
+            BirthdayEventDTO event = new BirthdayEventDTO(date, persons);
+            upcomingBirthdays.add(event);
+            upcomingBirthdays.sort(Comparator.comparing(BirthdayEventDTO::getDate));
         }
 
         return upcomingBirthdays;
@@ -58,8 +72,7 @@ public class BirthdayService {
      */
     public List<BirthdayEventDTO> getAllBirthdays() {
         List<PersonEntity> allPersons = personRepo.findAll();
-        List<BirthdayEventDTO> birthdayEvents = new ArrayList<>();
-
+        Map<LocalDate, List<PersonDTO>> eventsMap = new HashMap<>();  
         int currentYear = LocalDate.now().getYear();
 
         for (PersonEntity person : allPersons) {
@@ -69,14 +82,24 @@ public class BirthdayService {
                 person.getBirthDate().getDayOfMonth()
             );
 
-            BirthdayEventDTO event = new BirthdayEventDTO(thisYearBirthday, List.of(person));
+            PersonDTO personDTO = PersonDTO.fromEntity(person);
+
+            eventsMap.computeIfAbsent(thisYearBirthday, k -> new ArrayList<>())
+                    .add(personDTO);
+        }
+
+        List<BirthdayEventDTO> birthdayEvents = new ArrayList<>();
+        for (Map.Entry<LocalDate, List<PersonDTO>> entry : eventsMap.entrySet()) {
+            LocalDate date = entry.getKey();
+            List<PersonDTO> persons = entry.getValue();
+            
+            BirthdayEventDTO event = new BirthdayEventDTO(date, persons);
             birthdayEvents.add(event);
         }
 
-        birthdayEvents.sort(Comparator.comparing(
-            event -> LocalDate.of(1900, event.getDate().getMonth(), event.getDate().getDayOfMonth())
-        ));
+        birthdayEvents.sort(Comparator.comparing(BirthdayEventDTO::getDate));
 
         return birthdayEvents;
     }
+
 }
