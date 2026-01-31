@@ -12,6 +12,7 @@ import org.springframework.lang.NonNull;
 
 import su.solyara.Congratulator.DTO.PersonDTO;
 import su.solyara.Congratulator.domain.positions.Position;
+import su.solyara.Congratulator.repos.PersonRepo;
 import su.solyara.Congratulator.service.PersonService;
 
 @Component
@@ -20,6 +21,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private PersonRepo personRepo;
 
     @Override
     @Transactional
@@ -74,7 +78,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         );
 
         for (PersonDTO dto : demoPersons) {
-            personService.createPerson(dto);
+            if (!personRepo.existsByEmail(dto.getEmail())){
+                personService.createPerson(dto);
+            }
         }
        
         alreadySetup = true;
