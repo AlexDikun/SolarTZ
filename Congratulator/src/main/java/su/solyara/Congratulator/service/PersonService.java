@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import su.solyara.Congratulator.DTO.PersonDTO;
 import su.solyara.Congratulator.domain.PersonEntity;
+import su.solyara.Congratulator.domain.exceptions.ConflictException;
 import su.solyara.Congratulator.repos.PersonRepo;
 
 @Service
@@ -20,17 +21,19 @@ public class PersonService {
         PersonEntity personEntity;
 
         if (optPerson.isPresent()) {
-            personEntity = optPerson.get();
-        } else {
-            personEntity = new PersonEntity();
-            personEntity.setEmail(personDTO.getEmail());
-            personEntity.setFirstName(personDTO.getFirstName());
-            personEntity.setLastName(personDTO.getLastName());
-            personEntity.setBirthDate(personDTO.getBirthDate());
-            personEntity.setPosition(personDTO.getPosition());
+            throw new ConflictException(
+                "Email '" + personDTO.getEmail() + "' уже зарегистрирован. Попробуйте войти или восстановить пароль."
+            );
+        } 
 
-            personEntity = personRepo.save(personEntity);
-        }
+        personEntity = new PersonEntity();
+        personEntity.setEmail(personDTO.getEmail());
+        personEntity.setFirstName(personDTO.getFirstName());
+        personEntity.setLastName(personDTO.getLastName());
+        personEntity.setBirthDate(personDTO.getBirthDate());
+        personEntity.setPosition(personDTO.getPosition());
+
+        personEntity = personRepo.save(personEntity);   
 
         return PersonDTO.fromEntity(personEntity);
     } 
