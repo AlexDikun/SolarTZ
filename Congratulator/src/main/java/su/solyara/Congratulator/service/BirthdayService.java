@@ -2,6 +2,7 @@ package su.solyara.Congratulator.service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,31 @@ public class BirthdayService {
         return upcomingBirthdays;
     }
     
+    /**
+     * @return список объектов с датой и списком именинников в текущем году, 
+     * отсортированных по месяцу и дню
+     */
+    public List<BirthdayEventDTO> getAllBirthdays() {
+        List<PersonEntity> allPersons = personRepo.findAll();
+        List<BirthdayEventDTO> birthdayEvents = new ArrayList<>();
+
+        int currentYear = LocalDate.now().getYear();
+
+        for (PersonEntity person : allPersons) {
+            LocalDate thisYearBirthday = LocalDate.of(
+                currentYear,
+                person.getBirthDate().getMonth(),
+                person.getBirthDate().getDayOfMonth()
+            );
+
+            BirthdayEventDTO event = new BirthdayEventDTO(thisYearBirthday, List.of(person));
+            birthdayEvents.add(event);
+        }
+
+        birthdayEvents.sort(Comparator.comparing(
+            event -> LocalDate.of(1900, event.getDate().getMonth(), event.getDate().getDayOfMonth())
+        ));
+
+        return birthdayEvents;
+    }
 }
