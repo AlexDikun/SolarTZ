@@ -7,12 +7,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import su.solyara.Congratulator.DTO.BirthdayEventDTO;
 import su.solyara.Congratulator.domain.PersonEntity;
 import su.solyara.Congratulator.repos.PersonRepo;
 
 @Service
+@Transactional
 public class BirthdayService {
 
     @Autowired

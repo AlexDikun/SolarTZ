@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
 import su.solyara.Congratulator.DTO.PersonDTO;
@@ -12,6 +13,7 @@ import su.solyara.Congratulator.domain.exceptions.ConflictException;
 import su.solyara.Congratulator.repos.PersonRepo;
 
 @Service
+@Transactional
 public class PersonService {
 
     @Autowired
