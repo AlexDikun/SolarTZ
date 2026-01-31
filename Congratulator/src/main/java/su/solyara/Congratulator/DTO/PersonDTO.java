@@ -3,6 +3,8 @@ package su.solyara.Congratulator.DTO;
 import su.solyara.Congratulator.domain.PersonEntity;
 import su.solyara.Congratulator.domain.positions.Position;
 
+import java.time.LocalDate;
+
 import lombok.Data;
 
 @Data
@@ -10,6 +12,7 @@ public class PersonDTO {
     private String firstName;
     private String lastName;
     private String email;
+    private LocalDate birthDate;
     private Position position;
 
     public static PersonDTO fromEntity(PersonEntity personEntity) {
@@ -17,6 +20,7 @@ public class PersonDTO {
         dto.setEmail(personEntity.getEmail());
         dto.setFirstName(personEntity.getFirstName());
         dto.setLastName(personEntity.getLastName());
+        dto.setBirthDate(personEntity.getBirthDate());
         dto.setPosition(personEntity.getPosition());
         return dto;
     }

@@ -26,6 +26,7 @@ public class PersonService {
             personEntity.setEmail(personDTO.getEmail());
             personEntity.setFirstName(personDTO.getFirstName());
             personEntity.setLastName(personDTO.getLastName());
+            personEntity.setBirthDate(personDTO.getBirthDate());
             personEntity.setPosition(personDTO.getPosition());
 
             personEntity = personRepo.save(personEntity);

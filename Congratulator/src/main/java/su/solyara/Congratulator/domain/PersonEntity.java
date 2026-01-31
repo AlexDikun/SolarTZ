@@ -1,5 +1,7 @@
 package su.solyara.Congratulator.domain;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +30,9 @@ public class PersonEntity {
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     @Column(name = "positions")
     private Position position;
