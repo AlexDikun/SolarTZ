@@ -83,4 +83,10 @@ public class PersonService {
         personRepo.deleteById(id);
     }
 
+    public PersonDTO getPersonById(Long id) {
+        PersonEntity personEntity = personRepo.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Сотрудник с id=" + id + " не найден"));
+        return PersonDTO.fromEntity(personEntity);
+    }
+
 }
