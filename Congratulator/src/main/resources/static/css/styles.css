@@ -1,0 +1,57 @@
+.birthday-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #f8f9fa;
+}
+
+.date-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0d6efd;
+    margin-bottom: 8px;
+}
+
+.person-item {
+    padding: 6px 0;
+    border-bottom: 1px dashed #e9ecef;
+}
+
+.person-item:last-child {
+    border-bottom: none;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 2rem;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-info {
+    color: #084298;
+    background-color: #cff4fc;
+    border-color: #b6effb;
+}
