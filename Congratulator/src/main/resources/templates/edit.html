@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать запись</title>
+</head>
+<body>
+    <h1>Редактировать запись</h1>
+
+    <form
+        th:action="@{/edit/{id}(id=${person.id})}"
+        th:object="${person}"
+        method="post"
+        enctype="multipart/form-data"
+    >
+        <label>Имя: <input type="text" th:field="*{firstName}" required /></label><br />
+        <label>Фамилия: <input type="text" th:field="*{lastName}" required /></label><br />
+        <label>Email: <input type="email" th:field="*{email}" required /></label><br />
+        <label>Дата рождения: <input type="date" th:field="*{birthDate}" required /></label><br />
+        <label>Должность:
+            <select th:field="*{position}" required>
+                <option th:each="pos : ${positions}" th:value="${pos}" th:text="${pos}"></option>
+            </select>
+        </label><br />
+        <label>Фотография: <input type="file" name="file" /></label><br />
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <div>
+        <a th:href="@{/all}">Назад</a>
+    </div>
+</body>
+</html>

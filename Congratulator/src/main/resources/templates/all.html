@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все дни рождения</title>
+</head>
+<body>
+    <h1>Все дни рождения</h1>
+
+    <div th:each="event : ${birthdays}">
+        <h3 th:text="${event.date}"></h3>
+        <ul>
+            <li th:each="person : ${event.persons}">
+                <span th:text="${person.firstName + ' ' + person.lastName}"></span>
+                <span th:text="${' (' + person.position + ')'}"></span>
+                <img
+                    th:if="${person.photoFileName}"
+                    th:src="@{/photos/{fileName}(fileName=${person.photoFileName})}"
+                    width="50"
+                    height="50"
+                />
+                <a th:href="@{/edit/{id}(id=${person.id})}">Редактировать</a>
+                <a th:href="@{/delete/{id}(id=${person.id})}">Удалить</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <a th:href="@{/}">На главную</a>
+        <a th:href="@{/add}">Добавить запись</a>
+    </div>
+</body>
+</html>

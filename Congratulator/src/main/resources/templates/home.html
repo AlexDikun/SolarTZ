@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Поздравлятор</title>
+</head>
+<body>
+    <h1>Ближайшие дни рождения</h1>
+    <p th:text="${periodTitle}"></p>
+
+    <div th:each="event : ${birthdays}">
+        <h3 th:text="${event.date}"></h3>
+        <ul>
+            <li th:each="person : ${event.persons}">
+                <span th:text="${person.firstName + ' ' + person.lastName}"></span>
+                <span th:text="${' (' + person.position + ')'}"></span>
+                <img
+                    th:if="${person.photoFileName}"
+                    th:src="@{/photos/{fileName}(fileName=${person.photoFileName})}"
+                    width="50"
+                    height="50"
+                />
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <a th:href="@{/all}">Все дни рождения</a>
+        <a th:href="@{/add}">Добавить запись</a>
+    </div>
+</body>
+</html>
