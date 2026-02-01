@@ -1,4 +1,4 @@
-package su.solyara.Congratulator.domain.exceptions;
+package su.solyara.Congratulator.exceptions;
 
 public class ConflictException extends RuntimeException {
     public ConflictException(String message) {

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import jakarta.persistence.EntityNotFoundException;
 import su.solyara.Congratulator.DTO.PersonDTO;
 import su.solyara.Congratulator.domain.PersonEntity;
-import su.solyara.Congratulator.domain.exceptions.ConflictException;
 import su.solyara.Congratulator.repos.PersonRepo;
 
 @Service
@@ -22,12 +21,6 @@ public class PersonService {
     public PersonDTO createPerson(PersonDTO personDTO) {
         Optional<PersonEntity> optPerson = personRepo.findByEmail(personDTO.getEmail());
         PersonEntity personEntity;
-
-        if (optPerson.isPresent()) {
-            throw new ConflictException(
-                "Email '" + personDTO.getEmail() + "' уже зарегистрирован. Попробуйте войти или восстановить пароль."
-            );
-        } 
 
         personEntity = new PersonEntity();
         personEntity.setEmail(personDTO.getEmail());
@@ -46,12 +39,6 @@ public class PersonService {
 
         if (optPerson.isPresent()) {
             throw new EntityNotFoundException("Сотрудник с id=" + id + " не найден");
-        }
-        
-        if (personRepo.existsByEmail(personDTO.getEmail())) {
-            throw new ConflictException(
-            "Email '" + personDTO.getEmail() + "' уже используется другим сотрудником"
-            );
         }
 
         PersonEntity personEntity = optPerson.get();
