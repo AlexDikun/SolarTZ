@@ -9,19 +9,23 @@ import lombok.Data;
 
 @Data
 public class PersonDTO {
+    private Long id; 
     private String firstName;
     private String lastName;
     private String email;
     private LocalDate birthDate;
     private Position position;
+    private String photoFileName;
 
     public static PersonDTO fromEntity(PersonEntity personEntity) {
         PersonDTO dto = new PersonDTO();
+        dto.setId(personEntity.getId());
         dto.setEmail(personEntity.getEmail());
         dto.setFirstName(personEntity.getFirstName());
         dto.setLastName(personEntity.getLastName());
         dto.setBirthDate(personEntity.getBirthDate());
         dto.setPosition(personEntity.getPosition());
+        dto.setPhotoFileName(personEntity.getPhotoFileName());
         return dto;
     }
 

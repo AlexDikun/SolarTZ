@@ -39,5 +39,8 @@ public class PersonEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "positions")
     private Position position;
+
+    @Column(name = "photo_file_name")
+    private String photoFileName;
      
 }
