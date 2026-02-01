@@ -19,7 +19,7 @@ public class PhotoService {
             return null;
         }
 
-        Path uploadPath = Paths.get(uploadDir);
+        Path uploadPath = Paths.get("uploads/photos");
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
