@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.lang.NonNull;
 
 import su.solyara.Congratulator.DTO.PersonDTO;
+import su.solyara.Congratulator.domain.PersonEntity;
 import su.solyara.Congratulator.domain.positions.Position;
 import su.solyara.Congratulator.repos.PersonRepo;
 import su.solyara.Congratulator.service.PersonService;
@@ -76,8 +77,17 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         );
 
         for (PersonDTO dto : demoPersons) {
-            if (!personRepo.existsByEmail(dto.getEmail())){
-                personService.createPerson(dto);
+            try {
+                if (!personRepo.existsByEmail(dto.getEmail())) {
+                    PersonDTO createdPerson = personService.createPerson(dto, null);
+                    PersonEntity personEntity = personRepo.findByEmail(createdPerson.getEmail()).orElse(null);
+                    if (personEntity != null) {
+                        personEntity.setPhotoFileName("person.jpg");
+                        personRepo.save(personEntity);
+                    }
+                }
+            } catch (Exception e) {
+                System.err.println("Ошибка при создании демо-персоны: " + e.getMessage());
             }
         }
        
